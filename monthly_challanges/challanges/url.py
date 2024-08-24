@@ -3,6 +3,6 @@ from . import views
 
 # Create your views here.
 urlpatterns = [
-    path("<int:year>", views.yearly_challenge),
-    path("<str:month>", views.monthly_challenges),
+    path("<int:month>", views.monthly_challange_by_number),
+    path("<str:month>", views.monthly_challanges),
 ]
