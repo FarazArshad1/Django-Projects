@@ -28,3 +28,6 @@ def monthly_challanges(request, month):
     return HttpResponse(result)
    except:
       return HttpResponseNotFound("No response for this request")
+
+def pages(request, pageNo):
+   return HttpResponse(f'Dang Dang {pageNo} Bro')
