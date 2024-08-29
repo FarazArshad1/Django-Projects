@@ -7,3 +7,9 @@ def Home_Page(request):
 
 def About_Page(request):
     return render(request,"About.html")
+
+def contact_page(request):
+    return render(request,'contact.html')
+
+def gallery_page(request):
+    return render(request,"Gallery.html")
