@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Erp</title>
+
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+</head>
+<body>
+    <h1 class="text-center">Welcome To Student Erp System</h1>
+    <center>
+        <a href="Learning_Django_About_Us">About Us</a>
+        <a href="../">Home</a>
+        <a href="contact_page">Contact Us</a>
+        <a href="gallery_page">Gallery</a>
+        <a href="login_page">Login</a>
+    </center>
+    
+    {% block content %}
+    {% endblock content %} 
+    {% bootstrap_javascript %}
+    
+</body>
+</html>

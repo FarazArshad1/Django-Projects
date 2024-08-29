@@ -13,3 +13,6 @@ def contact_page(request):
 
 def gallery_page(request):
     return render(request,"Gallery.html")
+
+def login_page(request):
+    return render(request,'Login.html')
