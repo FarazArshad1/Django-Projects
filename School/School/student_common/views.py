@@ -26,7 +26,7 @@ def list_student(request):
 
     return render(request, 'listStudent.html',students)
 
-def Student_merit_list(request);
+def Student_merit_list(request):
     merit = [12,45,435,3,4,4,646,43,54,33,544,32,53]
     return render(request, 'Merit_List.html',{"data" : merit})
 
