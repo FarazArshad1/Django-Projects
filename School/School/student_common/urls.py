@@ -16,5 +16,6 @@ urlpatterns = [
     path('Admission_Process',Core_operation.Admns_page,name="Core_Opeartion_page"),
     path("Find_sum_page",views.Sum_page,name="Find Sum Page"),
     path('calculate_sum',views.calculate_sum,name='result fint'),
-    path('calculate_sub',views.calculate_sub,name='result sub find')
+    path('calculate_sub',views.calculate_sub,name='result sub find'),
+    path('find_multi',views.Find_multi,name='Find Multiplication of two number')
 ]

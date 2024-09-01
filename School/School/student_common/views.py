@@ -52,3 +52,12 @@ def calculate_sub(request):
     b = request.GET.get('b')
     c = int(a) - int(b)
     return render(request,'Sum.html',{'sub': 'Result is ' + str(c)})
+
+def Find_multi(request):
+    if request.method == 'GET':
+        return render(request,'Multiply.html')
+    else:
+        a = request.POST.get('a')
+        b = request.POST.get('b')
+        c = int(a) * int(b)
+        return render(request,'Multiply.html',{'sum' : 'Result is ' + str(c)})
