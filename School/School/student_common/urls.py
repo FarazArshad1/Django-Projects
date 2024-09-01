@@ -13,5 +13,8 @@ urlpatterns = [
     path("Student_list",views.list_student,name="List_of_Student"),
     path('Student_merit_list',views.Student_merit_list,name="Merit_list"),
     path('Counting',views.Display_odd_even,name="Odd_Even_list"),
-    path('Admission_Process',Core_operation.Admns_page,name="Core_Opeartion_page")
+    path('Admission_Process',Core_operation.Admns_page,name="Core_Opeartion_page"),
+    path("Find_sum_page",views.Sum_page,name="Find Sum Page"),
+    path('calculate_sum',views.calculate_sum,name='result fint'),
+    path('calculate_sub',views.calculate_sub,name='result sub find')
 ]

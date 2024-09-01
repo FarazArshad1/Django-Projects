@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Sum Page</title>
+</head>
+<body>
+    <h1 align="center"> Find Sum of Two Numbers</h1>
+    <center>
+        <form method="post" action="calculate_sum">
+        {% csrf_token %}
+            <label>Enter Your A value</label>
+            <input type="number" name="a" required>
+            <br><br>
+
+            <label>Enter Your B value</label>
+            <input type="number" name="b" required>
+            <br><br>
+
+            <button>Find Sum</button>
+        </form>
+        <h2>{{sum}}</h2>
+
+        <hr>
+        <form method="get" action="calculate_sub">
+                <label>Enter Your A value</label>
+                <input type="number" name="a" required>
+                <br><br>
+    
+                <label>Enter Your B value</label>
+                <input type="number" name="b" required>
+                <br><br>
+    
+                <button>Find Sub</button>
+            </form>
+            <h2>{{sub}}</h2>
+    </center>
+</body>
+</html>

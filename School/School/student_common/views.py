@@ -35,3 +35,20 @@ def Display_odd_even(request):
     for i in range(51):
         record.append(i)
     return render(request,"Odd_even.html",{"data":record})
+
+
+def Sum_page(request):
+    return render(request,'Sum.html')
+
+def calculate_sum(request):
+    a = request.POST.get('a')
+    b = request.POST.get('b')
+    c = int(a) + int(b)
+    return render(request,'Sum.html',{'sum': 'Result is ' + str(c)})
+
+
+def calculate_sub(request):
+    a = request.GET.get('a')
+    b = request.GET.get('b')
+    c = int(a) - int(b)
+    return render(request,'Sum.html',{'sub': 'Result is ' + str(c)})
