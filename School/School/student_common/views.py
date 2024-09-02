@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from . Mydatabase_connect import database_Connect
+from .models import Employee
 
 # Create your views here.
 
@@ -80,3 +81,16 @@ def Add_student(request):
            return render(request, 'Student_information.html',{'Result' : 'Record Inserted'})
         except Exception as ex:
             return render(request, 'Student_information.html',{'Result' : ex})
+        
+
+def Employee_Add(request):
+    if request.method == 'GET':
+        return render(request,'Employee.html')
+    else:
+        name = request.POST.get('empname')
+        empid = request.POST.get('empid')
+        department = request.POST.get('dept')
+        obj = Employee(Employee_name=name, Employee_id=empid, Employee_Department=department)
+        obj.save()
+
+        return render(request,'Employee.html', {'result' : 'Data Save Sucessfully'})

@@ -18,5 +18,6 @@ urlpatterns = [
     path('calculate_sum',views.calculate_sum,name='result fint'),
     path('calculate_sub',views.calculate_sub,name='result sub find'),
     path('find_multi',views.Find_multi,name='Find Multiplication of two number'),
-    path('student_save',views.Add_student,name='Save Student Record')
+    path('student_save',views.Add_student,name='Save Student Record'),
+    path('Employee_Add',views.Employee_Add,name='Employee_Add Data')
 ]

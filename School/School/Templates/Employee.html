@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Add</title>
+</head>
+<body>
+    <form action="Employee_Add" method="post">
+        {% csrf_token %}
+        Enter Employee Name <input type="text" name="empname" required><br><br>
+        Enter Employee Id <input type="text" name="empid" required><br><br>
+        Enter Employee Department <input type="text" name="dept" required><br><br>
+        <button>Submit</button>
+    </form>
+    <h1>{{result}}</h1>
+    
+</body>
+</html>
