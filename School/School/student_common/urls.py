@@ -17,5 +17,6 @@ urlpatterns = [
     path("Find_sum_page",views.Sum_page,name="Find Sum Page"),
     path('calculate_sum',views.calculate_sum,name='result fint'),
     path('calculate_sub',views.calculate_sub,name='result sub find'),
-    path('find_multi',views.Find_multi,name='Find Multiplication of two number')
+    path('find_multi',views.Find_multi,name='Find Multiplication of two number'),
+    path('student_save',views.Add_student,name='Save Student Record')
 ]

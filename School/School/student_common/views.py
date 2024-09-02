@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from . Mydatabase_connect import database_Connect
 
 # Create your views here.
 
@@ -61,3 +62,21 @@ def Find_multi(request):
         b = request.POST.get('b')
         c = int(a) * int(b)
         return render(request,'Multiply.html',{'sum' : 'Result is ' + str(c)})
+    
+def Add_student(request):
+    if request.method == 'GET':
+        return render(request,'Student_information.html')
+    else:
+        try:
+           name = request.POST.get('a')
+           roll = request.POST.get('b')
+           branch = request.POST.get('branch')
+           mydb = database_Connect()
+           mycursor = mydb.cursor()
+           sql = 'insert into student(student_name,roll,branch)values(%s,%s,%s)'
+           value=(name,roll,branch)
+           mycursor.execute(sql,value)
+           mydb.commit()
+           return render(request, 'Student_information.html',{'Result' : 'Record Inserted'})
+        except Exception as ex:
+            return render(request, 'Student_information.html',{'Result' : ex})
