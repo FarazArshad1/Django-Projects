@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Add</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1 align="center">Add Employee Record</h1>
-    <form action="Employee_Add" method="post" align="center">
+    <h1 align="center">Employee Update</h1>
+    <form action="Employee_Update" method="post" align="center" onsubmit="return confirm('Are you sure you want to update this record')">
         {% csrf_token %}
+        Enter Employee Sno <input type="text" name="sno" required><br><br>
         Enter Employee Name <input type="text" name="empname" required><br><br>
         Enter Employee Id <input type="text" name="empid" required><br><br>
         Enter Employee Department <input type="text" name="dept" required><br><br>
         <button>Submit</button>
     </form>
     <h1>{{result}}</h1>
-    
 </body>
 </html>

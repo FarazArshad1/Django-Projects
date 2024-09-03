@@ -107,3 +107,21 @@ def Employee_Delete(request):
             return render(request,'Employee_delete.html',{'result':'Record Deleted'})
         except:
             return render(request,'Employee_delete.html',{'result':'This Recod Does not Exist'})
+        
+def Employee_Update(request):
+    if request.method == 'GET':
+        return render(request,'Employee_Update.html')
+    else:
+        try:
+            Empsno = request.POST.get('sno')
+            name = request.POST.get('empname')
+            empid = request.POST.get('empid')
+            department = request.POST.get('dept')
+            obj = Employee.objects.get(sno=Empsno)
+            obj.Employee_name = name
+            obj.Employee_id = empid
+            obj.Employee_Department = department
+            obj.save()
+            return render(request,'Employee_Update.html',{'result': 'Data Upadte Sucessful'})
+        except:
+            return render(request,'Employee_Update.html',{'result': 'This record Dose Not Exsit'})
