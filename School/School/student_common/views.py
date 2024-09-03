@@ -94,3 +94,8 @@ def Employee_Add(request):
         obj.save()
 
         return render(request,'Employee.html', {'result' : 'Data Save Sucessfully'})
+    
+def Employee_Delete(request):
+    if request.method == 'GET':
+        return render(request,'Employee_delete.html')
+    else:
