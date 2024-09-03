@@ -8,7 +8,12 @@
 <body>
     <center>
         <h1>Employee Delete Example</h1>
-
+        <form action="Employee_Delete" method="post" onsubmit="return confirm('are you sure?')">
+            {% csrf_token %}
+            Enter Employee Sno <input type="text" name="sno"><br><br>
+            <button>Delete Now</button>
+        </form>
+        <h1>{{result}}</h1>
     </center>
 </body>
 </html>

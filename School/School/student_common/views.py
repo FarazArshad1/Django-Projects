@@ -99,3 +99,11 @@ def Employee_Delete(request):
     if request.method == 'GET':
         return render(request,'Employee_delete.html')
     else:
+        try:
+            emp_sno = request.POST.get('sno')
+            obj = Employee.objects.get(sno=emp_sno)
+            obj.delete()
+
+            return render(request,'Employee_delete.html',{'result':'Record Deleted'})
+        except:
+            return render(request,'Employee_delete.html',{'result':'This Recod Does not Exist'})
