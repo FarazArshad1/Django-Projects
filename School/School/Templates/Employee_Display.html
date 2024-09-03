@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1 align="center">Record of All Students</h1>
+        <table border="1">
+           <thead>
+            <tr>
+                 <th>Sno</th>
+                 <th>Employee Name</th>
+                 <th>Employee ID</th>
+                 <th>Employee Departmemt</th>
+            </tr>
+           </thead> 
+           <tbody>
+            {% for data in Record %}
+            <tr>
+                <td>{{data.sno}}</td>
+                <td>{{data.Employee_name}}</td>
+                <td>{{data.Employee_id}}</td>
+                <td>{{data.Employee_Department}}</td>
+            </tr>
+
+
+
+
+            {% endfor %}
+           </tbody>
+
+        </table>
+    </center>
+</body>
+</html>

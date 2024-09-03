@@ -125,3 +125,8 @@ def Employee_Update(request):
             return render(request,'Employee_Update.html',{'result': 'Data Upadte Sucessful'})
         except:
             return render(request,'Employee_Update.html',{'result': 'This record Dose Not Exsit'})
+        
+
+def Employee_Display(request):
+    obj= Employee.objects.all()
+    return render(request,'Employee_Display.html',{'Record' : obj})
