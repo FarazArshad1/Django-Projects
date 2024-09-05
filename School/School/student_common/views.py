@@ -130,3 +130,9 @@ def Employee_Update(request):
 def Employee_Display(request):
     obj= Employee.objects.all()
     return render(request,'Employee_Display.html',{'Record' : obj})
+
+def delete_Record(request):
+    emp_sno = request.GET.get('empid')
+    Employee.objects.get(sno=emp_sno).delete()
+    obj = Employee.objects.all()
+    return render(request,'Employee_Display.html',{'Record':obj})

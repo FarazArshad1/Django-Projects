@@ -40,7 +40,7 @@
                 <td>{{data.Employee_id}}</td>
                 <td>{{data.Employee_Department}}</td>
                 <td>
-                    <a class="btn btn-danger" href="delete_Record" onclick="return confirm('Are You Sure You want to Delete This Record')">Delete</a> |
+                    <a class="btn btn-danger" href="delete_Record?empid={{data.sno}}" onclick="return confirm('Are You Sure You want to Delete This Record')">Delete</a> |
                     <a class="btn btn-primary" href="update_record">Update</a>
                 </td>
             </tr>
