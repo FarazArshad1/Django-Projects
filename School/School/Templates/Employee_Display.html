@@ -20,7 +20,7 @@
 </head>
 <body>
     <div class="'container" style="margin-top:60px">
-        <div class="col-sm-6 offset-sm-3">
+        <div class="col-sm-8 offset-sm-2">
         <h1 align="center">Record of All Students</h1>
         <table class="table table-light table-striped" id="lahore">
            <thead>
@@ -29,6 +29,7 @@
                  <th>Employee Name</th>
                  <th>Employee ID</th>
                  <th>Employee Departmemt</th>
+                 <th>Action</th>
             </tr>
            </thead> 
            <tbody>
@@ -38,6 +39,10 @@
                 <td>{{data.Employee_name}}</td>
                 <td>{{data.Employee_id}}</td>
                 <td>{{data.Employee_Department}}</td>
+                <td>
+                    <a class="btn btn-danger" href="delete_Record" onclick="return confirm('Are You Sure You want to Delete This Record')">Delete</a> |
+                    <a class="btn btn-primary" href="update_record">Update</a>
+                </td>
             </tr>
 
 
