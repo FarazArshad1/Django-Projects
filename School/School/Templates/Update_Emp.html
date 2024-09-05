@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <form action="update_emp" method="post">
+            {% csrf_token %}
+            Sno  <input type="text" name="sno" readonly value="{{sno}}"><br><br>
+            Enter Employee Name <input type="text" name="empname" value="{{emp}}" required><br><br>
+            Enter Employee Id <input type="text" name="empid" value="{{empid}}" required><br><br>
+            Enter Employee Department <input type="text" name="dept" value="{{dept}}" required><br><br>
+        <button>Submit</button>
+        </form>
+    </center>
+</body>
+</html>
