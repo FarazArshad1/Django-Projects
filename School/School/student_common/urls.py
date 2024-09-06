@@ -24,5 +24,7 @@ urlpatterns = [
     path('Employee_Update',views.Employee_Update,name='Employee_Update'),
     path('Employee_Display',views.Employee_Display,name='Employee_Display'),
     path('delete_Record',views.delete_Record,name='Delete The selected Tabel Row'),
-    path('update_record',views.update_record,name='Table Row Selected Update')
+    path('update_record',views.update_record,name='Table Row Selected Update'),
+    path('update_emp',views.update_emp,name="Update Employee Record"),
+    path('Save_Emp_Data',views.Save_Emp_Data,name='Save Employee Record')
 ]

@@ -20,7 +20,12 @@
 </head>
 <body>
     <div class="'container" style="margin-top:60px">
-        <div class="col-sm-8 offset-sm-2">
+        <div class="col-sm-10 offset-sm-1">
+            <h3 class="text-center" style="color:green;margin-bottom:10px">
+                {% if Message %}
+                    {{Message}}
+                {% endif %}
+            </h3>
         <h1 align="center">Record of All Students</h1>
         <table class="table table-light table-striped" id="lahore">
            <thead>
@@ -33,6 +38,16 @@
             </tr>
            </thead> 
            <tbody>
+            <tr>
+                <form action="Save_Emp_Data" method="post">
+                    {% csrf_token %}
+                    <td>Auto</td>
+                    <td><input type="text" class="form-control" name="empname" required placeholder="Enter Employee Name"></td>
+                    <td><input type="text" class="form-control" name="empid" required placeholder="Enter Employee Id"></td>
+                    <td><input type="text" class="form-control" name="empdpt" required placeholder="Enter Employee Department"></td>
+                    <td><button class="btn btn-primary">Create</button></td>
+                </form>
+            </tr>
             {% for data in Record %}
             <tr>
                 <td>{{data.sno}}</td>
@@ -44,10 +59,6 @@
                     <a class="btn btn-primary" href="update_record?empid={{data.sno}}">Update</a>
                 </td>
             </tr>
-
-
-
-
             {% endfor %}
            </tbody>
 

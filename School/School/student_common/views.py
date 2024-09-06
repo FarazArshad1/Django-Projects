@@ -135,11 +135,32 @@ def delete_Record(request):
     emp_sno = request.GET.get('empid')
     Employee.objects.get(sno=emp_sno).delete()
     obj = Employee.objects.all()
-    return render(request,'Employee_Display.html',{'Record':obj})
+    return render(request,'Employee_Display.html',{'Record':obj, 'Message': emp_sno +' Record Deleted' })
 
 def update_record(request):
     emp_sno = request.GET.get('empid')
     obj=Employee.objects.filter(sno=emp_sno).values()
-    for i in obj:
-        record_data = i
-    return render(request,'Update_Emp.html',{'sno' : record_data['sno'],'emp': record_data['Employee_name'],'empid' : record_data['Employee_id'], 'dept':record_data['Employee_Department']})
+    return render(request,'Update_Emp.html',{'Record' : obj[0]})
+
+def update_emp(request):
+    sn = request.POST.get('sno')
+    emp_n = request.POST.get('empname')
+    emp_id = request.POST.get('empid')
+    emp_dept = request.POST.get('dept')
+    obj = Employee.objects.get(sno = sn)
+    obj.Employee_name = emp_n
+    obj.Employee_id = emp_id
+    obj.Employee_Department = emp_dept
+    obj.save()
+
+    obj = Employee.objects.all()
+    return render(request, 'Employee_Display.html', {'Record': obj, 'Message' : 'Selected Record Updated'})
+
+def Save_Emp_Data(request):
+    emp_n = request.POST.get('empname')
+    emp_id = request.POST.get('empid')
+    emp_dept = request.POST.get('empdpt')
+    obj = Employee(Employee_name = emp_n, Employee_id = emp_id, Employee_Department = emp_dept)
+    obj.save()
+    obj = Employee.objects.all()
+    return render(request,'Employee_Display.html',{'Record':obj,'Message':emp_n + ' Record Inserted'})
