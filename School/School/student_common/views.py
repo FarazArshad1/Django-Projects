@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from . Mydatabase_connect import database_Connect
-from .models import Employee
+from .models import Employee, Signup
 
 # Create your views here.
 
@@ -164,3 +164,37 @@ def Save_Emp_Data(request):
     obj.save()
     obj = Employee.objects.all()
     return render(request,'Employee_Display.html',{'Record':obj,'Message':emp_n + ' Record Inserted'})
+
+
+def newuser(request):
+    if request.method == 'GET':
+        return render(request, 'Newuser.html')
+    else:
+        try:
+            name = request.POST.get('nm')
+            email = request.POST.get('em')
+            password = request.POST.get('ps')
+            gender = request.POST.get('gender')
+            state = request.POST.get('st')
+            mobile = request.POST.get('mobile')
+            obj = Signup(Name = name, Email_id = email, Password = password, Gender = gender, State = state, Mobile = mobile)
+            obj.save() # Saving all the above objects in database
+            return render(request, 'Logs.html' ,{'message' : 'Done'})
+        except Exception as ex:
+            return render(request, 'Newuser.html', {'message' : ex})
+        
+
+def login(request):
+    if request.method == 'GET':
+        return render(request,'Logs.html')
+    else:
+        try:
+            email = request.POST.get('em')
+            password = request.POST.get('psw')
+            obj = Signup.objects.filter(Email_id = email, Password = password).values()
+            if(len(obj)>0):
+                return render(request,'Welcome.html')
+            else:
+                return render(request,'Logs.html',{'message2' : 'Incorrect Email or Password'})
+        except Exception as ex:
+            return render(request, 'Logs.html' ,{'message2' : ex})
