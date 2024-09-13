@@ -28,5 +28,9 @@ urlpatterns = [
     path('update_emp',views.update_emp,name="Update Employee Record"),
     path('Save_Emp_Data',views.Save_Emp_Data,name='Save Employee Record'),
     path('login',views.login, name='Login Page Access'),
-    path('newuser',views.newuser, name='New User Access Page')
+    path('newuser',views.newuser, name='New User Access Page'),
+    path('logout',views.logout,name='Logout Code'),
+    path('Welcome_page',views.welcome,name='Jump into welcome page'),
+    path('Transaction',views.Transaction,name='Transaction bank Satement'),
+    path('change_password', views.change_password,name='Change Password')
 ]

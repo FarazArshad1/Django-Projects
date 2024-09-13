@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . Mydatabase_connect import database_Connect
 from .models import Employee, Signup
 
@@ -193,8 +193,61 @@ def login(request):
             password = request.POST.get('psw')
             obj = Signup.objects.filter(Email_id = email, Password = password).values()
             if(len(obj)>0):
-                return render(request,'Welcome.html')
+                request.session['user_emailid'] = email
+                obj = Signup.objects.filter(Email_id = email).values()
+                name = obj[0]['Name']
+                request.session['user_name'] = name
+                return redirect(welcome) 
             else:
                 return render(request,'Logs.html',{'message2' : 'Incorrect Email or Password'})
         except Exception as ex:
             return render(request, 'Logs.html' ,{'message2' : ex})
+
+
+def welcome(request):
+    if 'user_emailid' in request.session:
+        email = request.session.get('user_emailid')
+        name = request.session.get('user_name')
+        return render(request,'Welcome.html',{'user_em' : email, 'Name' : name })
+    else:
+        return render(request, 'Logs.html',{'message2' : 'Please Login First'})
+        
+
+def logout(request):
+    del request.session['user_emailid']
+    return render(request, 'Logs.html',{'message2' : 'Logout Successfully'})
+
+def Transaction(request):
+    if 'user_emailid' in request.session:
+        email = request.session.get('user_emailid')
+        name = request.session.get('user_name')
+        return render(request, 'Transaction.html',{'user_em' : email, 'Name' : name })
+    else:
+        return render(request,'Logs.html',{'message2' : 'Please Login First'})
+    
+def change_password(request):
+    if 'user_emailid' in request.session:
+        if request.method == 'GET': 
+            email = request.session.get('user_emailid')
+            name = request.session.get('user_name')
+            return render(request,'Changepassword.html',{'user_em' : email, 'Name' : name })
+        else:
+            email = request.session.get('user_emailid')
+            name = request.session.get('user_name')
+            old_ps = request.POST.get('old')
+            new_ps = request.POST.get('new')
+            c_pass = request.POST.get('cpass')
+            obj = Signup.objects.filter(Email_id = email, Password = old_ps).values()
+            if(len(obj)>0):
+                if new_ps == c_pass:
+                    obj = Signup.objects.get(Email_id = email, Password = old_ps)
+                    obj.Password = new_ps
+                    obj.save()
+                    return render(request,'Changepassword.html',{'user_em' : email, 'Name' : name , 'message' : 'Password Changed Sucessfully' })
+                else:
+                    return render(request,'Changepassword.html',{'user_em' : email, 'Name' : name , 'message' : 'Password Mismatch'})
+            else:
+                return render(request,'Changepassword.html',{'user_em' : email, 'Name' : name , 'message' : 'Incorerct Old Password' })
+
+    else:
+        return render(request,'Logs.html',{'message2' : 'Please Login First'})
