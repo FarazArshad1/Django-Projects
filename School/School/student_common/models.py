@@ -17,3 +17,11 @@ class Signup(models.Model):
     Gender = models.CharField(max_length=50)
     State = models.CharField(max_length=255)
     Mobile = models.CharField(max_length=255,unique=True)
+
+class Contact(models.Model):
+    sno = models.AutoField(primary_key=True)
+    person_name = models.CharField(max_length=255)
+    """ To change the name to person_name". Had to run the makemigration and migrate command twice"""
+    person_name = models.CharField(max_length=255,db_column='name')
+    Email = models.CharField(max_length=255, unique=True)
+    address = models.CharField(max_length=255, default= 'NaN')
