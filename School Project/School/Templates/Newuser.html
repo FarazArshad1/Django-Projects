@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+<body>
+    <center>
+        <h1>New User Registration Form</h1>
+        <form action="newuser" method="post">
+            {% csrf_token %}
+        Name <input type="text" name="nm" required><br><br>
+        Email-Id <input type="email" name="em" required> <br><br>
+        Password <input type="password" name="ps"><br><br>
+        Gender <input type="radio" name="gender" value="Male">Male
+               <input type="radio" name="gender" value="Female">Female<br><br>
+        State <select name="st" required>
+              <option value="" selected disabled>Select State</option>
+              <option value="">Lahore</option>
+              <option value="">Islamabad</option>
+              <option value="">Karachi</option>
+              <option value="">Pesahwar</option>
+              <option value="">Quetta</option>  
+        </select> <br><br>
+        Mobile <input type="number" required name="mobile"><br><br>
+        <button>Signup Now</button>
+    </form><br><br>
+    <a href="login">Already Have an Account</a><br><br>
+    {% if message %}
+    <h3>{{message}}</h3>
+    {% endif %}
+    </center>
+</body>
+</html>

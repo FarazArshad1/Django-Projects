@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Employee Delete Example</h1>
+        <form action="Employee_Delete" method="post" onsubmit="return confirm('are you sure?')">
+            {% csrf_token %}
+            Enter Employee Sno <input type="text" name="sno"><br><br>
+            <button>Delete Now</button>
+        </form>
+        <h1>{{result}}</h1>
+    </center>
+</body>
+</html>

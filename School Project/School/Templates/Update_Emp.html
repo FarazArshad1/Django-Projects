@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <form action="update_emp" method="post">
+            {% csrf_token %}
+            Sno  <input type="text" name="sno" readonly value="{{Record.sno}}"><br><br>
+            Enter Employee Name <input type="text" name="empname" value="{{Record.Employee_name}}" required><br><br>
+            Enter Employee Id <input type="text" name="empid" value="{{Record.Employee_id}}" required><br><br>
+            Enter Employee Department <input type="text" name="empdept" value="{{Record.Employee_Department}}" required><br><br>
+        <button>Submit</button>
+        </form>
+        <a href="Employee_Display.html">Back</a>
+    </center>
+</body>
+</html>

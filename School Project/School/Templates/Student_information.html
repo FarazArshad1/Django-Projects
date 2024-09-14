@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Student Resgistration Form</h1>
+        <form action="student_save" method="post">
+            {% csrf_token %}
+            Enter Student Name <input type="text" name="a" required> <br><br>
+            Enter Student Roll <input type="text" name="b" required> <br><br>
+            Select Branch Name <select name="branch" required>
+                <option selected disabled value=""></option>
+                <option>MECH</option>
+                <option>CSE</option>
+                <option>CIVIL</option>
+            </select> <br><br>
+            <button>Save Now</button>
+        </form>
+        <h1>{{Result}}</h1>
+    </center>
+</body>
+</html>

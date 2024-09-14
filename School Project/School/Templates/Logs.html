@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <center>
+        <h1>Login Panel</h1>
+        <form action="login" method="post">
+            {% csrf_token %}
+            Email <input type="email" name="em" required><br><br>
+            Password <input type="password" name="psw" required><br><br>
+            <button>Login</button>
+        </form><br><br>
+        <a href="newuser">Signup</a><br><br>
+        {% if message %}
+        <script>
+            alert('Signup Sucessfully')
+        </script>
+        {% endif %}
+
+        {% if message2 %}
+        <h3><font color="red">{{message2}}</font></h3>
+        {% endif %}
+    </center>
+</body>
+</html>
