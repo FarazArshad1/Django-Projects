@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Record</title>
+</head>
+<body>
+    <center>
+        <h1>Add Teacher Record Here</h1>
+        <form action="Teacher_info" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button>Save Record</button>
+        </form>
+
+        {% if message %}
+        <h3>{{message }}</h3>
+        {% endif %}
+    </center>
+</body>
+</html>

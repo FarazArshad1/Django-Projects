@@ -32,5 +32,6 @@ urlpatterns = [
     path('logout',views.logout,name='Logout Code'),
     path('Welcome_page',views.welcome,name='Jump into welcome page'),
     path('Transaction',views.Transaction,name='Transaction bank Satement'),
-    path('change_password', views.change_password,name='Change Password')
+    path('change_password', views.change_password,name='Change Password'),
+    path('Teacher_info',views.Teacher_info,name='Teacher Data')
 ]

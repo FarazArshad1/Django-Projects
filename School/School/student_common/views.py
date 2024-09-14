@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from . Mydatabase_connect import database_Connect
-from .models import Employee, Signup
+from .models import Employee, Signup, Teacher
+from .teacher_form import Teacher_Input_Form
 
 # Create your views here.
 
@@ -251,3 +252,19 @@ def change_password(request):
 
     else:
         return render(request,'Logs.html',{'message2' : 'Please Login First'})
+    
+
+def Teacher_info(request):
+    if request.method == 'GET':
+        context = {}
+        context['form'] = Teacher_Input_Form()
+        return render(request,'Teacher.html',context)
+    else:
+        t_name = request.POST.get('Teacher_Name')
+        t_dept = request.POST.get('Department')
+        t_salary = request.POST.get('Salary')
+        obj = Teacher(Teacher_Name = t_name, Department = t_dept, Salary = t_salary)
+        obj.save()
+        context = {}
+        context['form'] = Teacher_Input_Form()
+        return render(request, 'Teacher.html', {'message' : 'Record Save','form' : context['form']})
