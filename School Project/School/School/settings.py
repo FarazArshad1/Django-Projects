@@ -93,7 +93,6 @@ DATABASES = {
         "PORT" :'3306',
         "USER" : 'root',
         'PASSWORD' : 'Lhrfscmm1712553'
-
     }
 }
 

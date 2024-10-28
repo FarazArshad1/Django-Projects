@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- <link rel="stylesheet" href="../static/css/my.css"> -->
+     <link rel="stylesheet" href="{% static 'css/my.css'%}">
+     <script src="{% static 'js/hi.js'% }"></script>
+    <style>
+       .abc{
+        text-align: center;
+        color: green;
+        background: wheat;
+       } 
+    </style>
+</head>
+<body>
+    <h1 align="center">Welcome To Home Page</h1>
+    {%include "D:\Django\Demo\Revision\School\Templates\commonHeaderFooter\Header.html" %}
+    <h1 class="abc">Welcome To Lahore </h1>
+    <h1 class="hello">My name is Django</h1>
+
+    <!-- <img src="../static/images/catimage.jpg" alt="Cat Image", width="200" height="200"> -->
+     <img src="{% static 'images/catimage.jpg' %}" alt="Cat Image " width="200" height="200">
+     <br><br>
+     <button onclick="Test()">Click Here</button>
+</body>
+</html>

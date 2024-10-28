@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student ERP</title>
+
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <h1 class="text-center"> Welcome To Student ERP System </h1>
+    
+     <center>
+        <a href="about_us_page">About</a>
+        <a href="/">Home</a>
+        <a href="contact_page">Contact Us</a>
+        <a href="gallary_page">Gallary</a>
+        <a href="login_page">Login</a>
+    </center>
+
+{% block content %}
+
+
+{%endblock content%}
+</body>
+</html>
