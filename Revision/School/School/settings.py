@@ -17,7 +17,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 Template_Dir = os.path.join(BASE_DIR, 'Templates')
-Teacher_Template_Dir = os.path.join(BASE_DIR, 'Teacher', 'templates')
+Teacher_Template_Dir = os.path.join(BASE_DIR, 'Teacher', 'Templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/

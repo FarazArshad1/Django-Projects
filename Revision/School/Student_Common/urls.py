@@ -7,5 +7,6 @@ urlpatterns = [
     path(route="about_us_page",view=views.about_us_page,name="About Us Page"),
     path(route = 'contact_page',view=views.contact_page, name = "Contact Page"),
     path(route="gallary_page", view=views.gallary_page, name= "Gallary Page"),
-    path(route="login_page", view = views.login_page, name = "Login Page")
+    path(route="login_page", view = views.login_page, name = "Login Page"),
+    path(route="Student_list", view = views.list_student, name="List of Students")
 ]

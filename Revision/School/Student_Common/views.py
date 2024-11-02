@@ -16,3 +16,12 @@ def gallary_page(request):
 
 def login_page(request):
     return render(request, 'Login.html')
+
+def list_student(request):
+    students = {
+        "Name" : "Rohan",
+        "Branch" : "CSE",
+        "Mobile" : "+987654321"
+    }
+
+    return render(request, "ListStudents.html", students)
